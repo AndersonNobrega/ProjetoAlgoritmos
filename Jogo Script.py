@@ -1,7 +1,10 @@
-import pygame
-import random
-import csv
-import time
+try:
+    import pygame
+    import random
+    import csv
+    import time
+except ImportError:
+    quit()
 
 pygame.init()
 
@@ -15,8 +18,9 @@ cinza = (160, 160, 160)
 texto_grande = pygame.font.Font('assets/arial.ttf', 115)
 texto_médio = pygame.font.Font('assets/arial.ttf', 40)
 texto_pequeno = pygame.font.Font('assets/arial.ttf', 20)
+menu_jogo_img = pygame.image.load('assets/Menu_do_Jogo.png')
 
-resolução_jogo = pygame.display.set_mode((resolução_altura, resolução_altura))
+resolução_jogo = pygame.display.set_mode((resolução_largura, resolução_altura))
 pygame.display.set_caption('Where in the world is carmen sandiego')
 fps = pygame.time.Clock()
 
@@ -54,13 +58,11 @@ def menu_jogo():
                 sair_jogo()
 
         resolução_jogo.fill(preto)
-        #superficie_texto, retangulo_texto = objetos_texto('Where in the world is carmen sandiego', texto_médio)
-        #retangulo_texto.center = ((resolução_largura / 2), (resolução_altura / 2))
-        #resolução_jogo.blit(superficie_texto, retangulo_texto)
 
-        botões('Novo Jogo', 250, 200, 150, 50, preto, cinza, loop_jogo)
-        #botões('Carregar Jogo', 300, 250, 150, 50, preto, cinza, carregar_jogo)
-        botões('Sair', 250, 300, 150, 50, preto, cinza, sair_jogo)
+        resolução_jogo.blit(menu_jogo_img, (0,0))
+        botões('Novo Jogo', 325, 200, 150, 50, preto, cinza, loop_jogo)
+        #botões('Carregar Jogo', 325, 250, 150, 50, preto, cinza, carregar_jogo)
+        botões('Sair', 325, 300, 150, 50, preto, cinza, sair_jogo)
 
         pygame.display.update()
         fps.tick(15)
@@ -73,9 +75,10 @@ def loop_jogo():
     while not saiu_jogo:
 
         for event in pygame.event.get():
-            if event.type == pygame.QUIT():
+            if event.type == pygame.QUIT:
                 sair_jogo()
 
+        resolução_jogo.fill(preto)
 
         pygame.display.update()
         fps.tick(60)
