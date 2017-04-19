@@ -18,6 +18,7 @@ cinza = (160, 160, 160)
 
 dificuldade = 1
 tentativas = 5
+bandidos_capturados = 0
 dia = random.randint(0, 6)
 hora = random.randint(0, 23)
 
