@@ -8,6 +8,50 @@ except ImportError:
 
 pygame.init()
 
+#Listas para guarda as informações dos arquivos .csv
+cidade_origem = []
+cidade_destino1 = []
+cidade_destino2 = []
+cidade_destino3 = []
+cidade_distancia1 = []
+cidade_distancia2 = []
+cidade_distancia3 = []
+dica1 = []
+dica2 = []
+dica3 = []
+descrição = []
+nomes_femininos = []
+nomes_masculinos = []
+
+#Abre arquivo com cidades,distancias,dicas e as suas descrições
+# "Cidade atual","Destino1","Distancia1","Destino2","Distancia2","Destino3","Distancia3","Dica1","Dica2","Dica3","Descrição"
+with open('ARQUIVOS CSV/dicas.csv', 'r') as dados_jogo:
+    linhas_dado = csv.reader(dados_jogo)
+    for linha in linhas_dado:
+        cidade_origem.append(linha[0])
+        cidade_destino1.append(linha[1])
+        cidade_destino2.append(linha[3])
+        cidade_destino3.append(linha[5])
+        cidade_distancia1.append(linha[2])
+        cidade_distancia2.append(linha[4])
+        cidade_distancia3.append(linha[6])
+        dica1.append(linha[7])
+        dica2.append(linha[8])
+        dica3.append(linha[9])
+        descrição.append(linha[10])
+
+#Abre arquivo dos nomes femininos
+with open('ARQUIVOS CSV/nomesfemininos.csv', 'r') as nomes1:
+    nomef = csv.reader(nomes1)
+    for linha in nomef:
+        nomes_femininos.append(linha[0])
+
+#Abre arquivo dos nomes masculinos
+with open('ARQUIVOS CSV/nomesmasculinos.csv', 'r') as nomes2:
+    nomem = csv.reader(nomes2)
+    for linha in nomem:
+        nomes_masculinos.append(linha[0])
+
 resolução_largura = 800
 resolução_altura = 600
 
@@ -18,6 +62,7 @@ cinza = (160, 160, 160)
 
 dificuldade = 1
 tentativas = 5
+bandidos_capturados = 0
 dia = random.randint(0, 6)
 hora = random.randint(0, 23)
 
