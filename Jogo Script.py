@@ -38,30 +38,19 @@ cidade_d1 = ''
 cidade_d2 = ''
 cidade_d3 = ''
 cidade_descrição = ''
-<<<<<<< HEAD
 hobby = ['Tênis', 'Música', 'Futebol', 'Escalar Montanhas', 'Nadar']
 cabelos = ['Careca', 'Loiro', 'Ruivo', 'Preto']
 detalhe = ['Aliança', 'Tatuagem', 'Cicatriz', 'Joia']
 carro  = ['Conversivel', 'Limosine', 'Carro de corrida', 'Motocicleta']
-=======
-hobby = ['Tênis','Música','Futebol','Escalar Montanhas','Nadar']
-cabelos = ['Careca','Loiro','Ruivo','Preto']
-detalhe = ['Aliança','Tatuagem','Cicatriz','Joia']
-carro  = ['Conversivel','Limosine','Carro de corrida','Motocicleta']
->>>>>>> origin/master
 dicas_hobby = []
 dicas_cabelos = []
 dicas_detalhe = []
 dicas_carro = []
-<<<<<<< HEAD
 sexo_mandato = ''
-=======
->>>>>>> origin/master
 hobby_mandato = ''
 detalhes_mandato = ''
 cabelo_mandato = ''
 carro_mandato = ''
-<<<<<<< HEAD
 nome_jogador = ''
 sexo_bandido = ''
 hobby_bandido = ''
@@ -70,12 +59,8 @@ detalhe_bandido = ''
 carro_bandido = ''
 
 # Abre arquivo com cidades,distancias,dicas e as suas descrições
-=======
-
-#Abre arquivo com cidades,distancias,dicas e as suas descrições
->>>>>>> origin/master
 # "Cidade atual","Destino1","Distancia1","Destino2","Distancia2","Destino3","Distancia3","Dica1","Dica2","Dica3","Descrição"
-with open('ARQUIVOS CSV/dicas.csv', 'r') as dados_jogo:
+with open('ARQUIVOS CSV/dicas.csv', 'r', encoding='ISO-8859-1') as dados_jogo:
     linhas_dado = csv.reader(dados_jogo)
     for linha in linhas_dado:
         cidade_origem.append(linha[0])
@@ -91,40 +76,25 @@ with open('ARQUIVOS CSV/dicas.csv', 'r') as dados_jogo:
         descrição.append(linha[10])
 
 #Abre arquivo dos nomes femininos
-with open('ARQUIVOS CSV/nomesfemininos.csv', 'r') as nomes1:
+with open('ARQUIVOS CSV/nomesfemininos.csv', 'r', encoding='ISO-8859-1') as nomes1:
     nomef = csv.reader(nomes1)
     for linha in nomef:
         nomes_femininos.append(linha[0])
 
-<<<<<<< HEAD
 # Abre arquivo dos nomes masculinos
 with open('ARQUIVOS CSV/nomesmasculinos.csv', 'r', encoding='ISO-8859-1') as nomes2:
-=======
-#Abre arquivo dos nomes masculinos
-with open('ARQUIVOS CSV/nomesmasculinos.csv', 'r') as nomes2:
->>>>>>> origin/master
     nomem = csv.reader(nomes2)
     for linha in nomem:
         nomes_masculinos.append(linha[0])
 
-<<<<<<< HEAD
 # Abre arquivo dos tesouros
 with open('ARQUIVOS CSV/tesouros.csv', 'r', encoding='ISO-8859-1') as tesouro_lista:
-=======
-#Abre arquivo dos tesouros
-with open('ARQUIVOS CSV/tesouros.csv', 'r') as tesouro_lista:
->>>>>>> origin/master
     tesouro = csv.reader(tesouros)
     for linha in tesouro:
         tesouros.append(linha[0])
 
-<<<<<<< HEAD
 # Abre arquivo das dicas dos hobbys,cabelos,detalhes e os carros
 with open('ARQUIVOS CSV/pistahobbys.csv', 'r', encoding='ISO-8859-1') as dicas_lista:
-=======
-#Abre arquivo das dicas dos hobbys,cabelos,detalhes e os carros
-with open('ARQUIVOS CSV/pistahobbys.csv', 'r') as dicas_lista:
->>>>>>> origin/master
     linha_dicas = csv.reader(dicas_lista)
     for linha in linha_dicas:
         try:
@@ -149,11 +119,7 @@ bandidos_capturados = 0
 dia = random.randint(0, 6)
 hora = random.randint(0, 23)
 
-<<<<<<< HEAD
 # Definindo fonte e as imagens a ser usadas
-=======
-#Definindo fonte e as imagens a ser usadas
->>>>>>> origin/master
 texto_grande = pygame.font.Font('assets/big_noodle_titling.ttf', 115)
 texto_médio = pygame.font.Font('assets/big_noodle_titling.ttf', 30)
 texto_pequeno = pygame.font.Font('assets/big_noodle_titling.ttf', 20)
@@ -165,7 +131,6 @@ menu_conexões_img = pygame.image.load('assets/Menu_Conexoes.png')
 menu_viajar_img = pygame.image.load('assets/Menu_Viajar.png')
 icone_jogo_img = pygame.image.load('assets/Jogo_Icone.png')
 plano_de_fundo = pygame.image.load('assets/carmensandiego760760.png')
-<<<<<<< HEAD
 menu_nome_jogador_img = pygame.image.load('assets/Menu_Nome.png')
 menu_detalhes_carro_cabelo_img = pygame.image.load('assets/Menu_detalhes_carro_cabelo.png')
 menu_hobby_img = pygame.image.load('assets/Menu_Hobby.png')
@@ -173,10 +138,6 @@ menu_sexo_img = pygame.image.load('assets/Menu_sexo.png')
 fundo_preto = pygame.image.load('assets/Esconder_mandato.png')
 
 # Definindo resolução e framerate do jogo
-=======
-
-#Definindo resolução e framerate do jogo
->>>>>>> origin/master
 resolução_jogo = pygame.display.set_mode((resolução_largura, resolução_altura))
 pygame.display.set_caption('Where in the world is carmen sandiego')
 pygame.display.set_icon(icone_jogo_img)
@@ -260,7 +221,6 @@ def escolher_destinos():
         return cidade_descrição, cidade_atual, cidade_d1, cidade_d2, cidade_d3
     else:
         return cidade_descrição, cidade_atual, cidade_d1, cidade_d2, cidade_d3
-<<<<<<< HEAD
 
 def recebe_nome_jogador():
     # Função que recebe e retorna o nome do jogador
@@ -296,8 +256,6 @@ def recebe_nome_jogador():
         centralizar_texto(200, 450, nome_jogador)
         pygame.display.update()
         fps.tick(15)
-=======
->>>>>>> origin/master
 
 def escolher_destinos_menu():
     # Função para inserir os destinos aleatorios no menu
@@ -323,7 +281,6 @@ def escolher_destinos_menu():
         pygame.display.update()
         fps.tick(60)
 
-<<<<<<< HEAD
 def sexo_menu():
     global sexo_bandido
 
@@ -459,16 +416,12 @@ def cabelo_menu():
 
 def carro_menu():
     global carro_bandido
-=======
-def hobby_menu():
->>>>>>> origin/master
 
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sair_jogo()
 
-<<<<<<< HEAD
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     resolução_jogo.blit(fundo_preto, (190, 190))
@@ -499,11 +452,6 @@ def mandato():
 
     global hobby_mandato, detalhes_mandato, cabelo_mandato,carro_mandato, flag_hobby, flag_detalhes,\
         flag_cabelo, flag_carro
-=======
-def mandato():
-    #Menu para criação do mandato de prisão e as escolha das caracteristicas para o bandido
-    global hobby_mandato, detalhes_mandato, cabelo_mandato,carro_mandato, flag_hobby, flag_detalhes, flag_cabelo, flag_carro
->>>>>>> origin/master
 
     while True:
         for event in pygame.event.get():
@@ -523,19 +471,11 @@ def mandato():
         if flag_carro == 0:
             carro_mandato = carro[(random.randrange(len(carro)))]
 
-<<<<<<< HEAD
         botões('Sexo: %s' %sexo_bandido, 420, 25, 355, 75, preto, cinza, sexo_menu)
         botões('Detalhes: %s' %detalhe_bandido, 420, 100, 355, 75, preto, cinza, detalhe_menu)
         botões('Hobby: %s' %hobby_bandido, 420, 175, 355, 75, preto, cinza, hobby_menu)
         botões('Cabelo: %s'%cabelo_bandido, 420, 250, 355, 75, preto, cinza,cabelo_menu)
         botões('Carro: %s'%carro_bandido, 420, 325, 355, 75, preto, cinza, carro_menu)
-=======
-        botões('Sexo:', 420, 25, 355, 75, preto, cinza, )
-        botões('Detalhes:', 420, 100, 355, 75, preto, cinza, )
-        botões('Hobby:', 420, 175, 355, 75, preto, cinza, hobby_menu)
-        botões('Cabelo:', 420, 250, 355, 75, preto, cinza, )
-        botões('Carro:', 420, 325, 355, 75, preto, cinza, )
->>>>>>> origin/master
 
         centralizar_texto(600, 567, 'Visitar Interpol')
 
@@ -562,15 +502,9 @@ def dias_horas(dia, hora):
         dia += 1
 
     if hora >= 0 and hora < 12:
-<<<<<<< HEAD
         centralizar_texto(200, 90, ('%s, %s a.m. ' % (dia, str(hora))))
     else:
         centralizar_texto(200, 90, ('%s, %s p.m. ' % (dia, str(hora))))
-=======
-        centralizar_texto(200, 90, ('%s, %s p.m. ' % (dia, str(hora))))
-    else:
-        centralizar_texto(200, 90, ('%s, %s a.m. ' % (dia, str(hora))))
->>>>>>> origin/master
 
 def centralizar_texto(x, y, msg):
     # Função para centralizar texto
