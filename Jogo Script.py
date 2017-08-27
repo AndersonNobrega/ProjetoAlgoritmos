@@ -3,7 +3,9 @@ try:
     import random
     import csv
     import time
+    import os
 except ImportError:
+    print("Erro no import")
     quit()
 
 pygame.mixer.pre_init(44100, 16, 2, 4096)
@@ -297,9 +299,12 @@ def salvar_jogo():
 
 def ranking_guardar():
     '''Guardar as informações ao final do jogo para o ranking'''
-    with open('ARQUIVOS CSV/ranking.csv', 'a', encoding='ISO-8859-1') as ranking_lista:
-        info = csv.writer(ranking_lista)
-        info.writerow([nome_jogador, PATENTES[dificuldade], str(bandidos_capturados)])
+    arquivo_csv = open('ARQUIVOS CSV/ranking.csv', 'a', encoding='ISO-8859-1')
+    if os.stat("ARQUIVOS CSV/ranking.csv").st_size == 0:
+        arquivo_csv.write(nome_jogador + "," + PATENTES[dificuldade] + "," + str(bandidos_capturados))
+    else:
+        arquivo_csv.write("\n" + nome_jogador + "," + PATENTES[dificuldade] + "," + str(bandidos_capturados))
+    arquivo_csv.close()
 
 def centralizar_texto(x, y, msg):
     '''Função para centralizar texto'''
